@@ -4,7 +4,10 @@ import argparse
 import cv2
 import fnmatch
 import os
-import pyexiv2                  # dnf install python3-exiv2 (py3exiv2)
+
+#this package caused me to have to download Microsoft C++ build tools. might be worth using a different package to avoid this
+#could replace with PIL 
+#import pyexiv2                  # dnf install python3-exiv2 (py3exiv2)
 import sys
 
 from props import getNode       # from aura-props package
@@ -39,7 +42,7 @@ camera_name, make, model, lens_model = proj.detect_camera()
 camera_file = os.path.join("..", "cameras", camera_name + ".json")
 print("Camera:", camera_name, camera_file)
 
-exif = pyexiv2.ImageMetadata(image_file)
+#exif = pyexiv2.ImageMetadata(image_file)
 exif.read()
 #for key in exif:
 #    print(key)
